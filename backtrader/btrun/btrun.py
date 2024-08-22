@@ -30,6 +30,7 @@ import string
 import sys
 
 import backtrader as bt
+#from backtrader.btrun import TestRun 
 
 
 DATAFORMATS = dict(
@@ -740,4 +741,13 @@ def parse_args(pargs=''):
 
 
 if __name__ == '__main__':
-    btrun()
+    #btrun()
+    args = parse_args()
+
+    # Check if data is provided via args, otherwise, call TestRun.py logic
+    if args.data:
+        # Handle your data file case
+        pass
+    else:
+        # Run the main function from TestRun.py
+        TestRun.main()

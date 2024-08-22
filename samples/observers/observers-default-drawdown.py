@@ -35,6 +35,9 @@ import backtrader.indicators as btind
 
 class MyStrategy(bt.Strategy):
     params = (('smaperiod', 15),)
+    def next(self):
+        print(self.data.close[0])
+        
 
     def log(self, txt, dt=None):
         ''' Logging function fot this strategy'''
@@ -73,7 +76,7 @@ class MyStrategy(bt.Strategy):
 def runstrat():
     cerebro = bt.Cerebro()
 
-    data = bt.feeds.BacktraderCSVData(dataname='../../datas/2006-day-001.txt')
+    data = bt.feeds.PandasData(dataname=data)
     cerebro.adddata(data)
 
     cerebro.addobserver(bt.observers.DrawDown)

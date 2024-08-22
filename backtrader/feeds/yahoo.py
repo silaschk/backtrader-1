@@ -25,8 +25,14 @@ import collections
 from datetime import date, datetime
 import io
 import itertools
+# Original code:
+# from ..utils.py3 import (urlopen, urlquote, ProxyHandler, build_opener)
+
+# Modified code:
+from backtrader.utils.py3 import (urlopen, urlquote, ProxyHandler, build_opener)
 
 from ..utils.py3 import (urlopen, urlquote, ProxyHandler, build_opener,
+
                          install_opener)
 
 import backtrader as bt

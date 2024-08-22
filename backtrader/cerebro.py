@@ -564,17 +564,17 @@ class Cerebro(with_metaclass(MetaParams, object)):
         self.p.tz = tz
 
     def addcalendar(self, cal):
-        '''Adds a global trading calendar to the system. Individual data feeds
-        may have separate calendars which override the global one
+        # '''Adds a global trading calendar to the system. Individual data feeds
+        # may have separate calendars which override the global one
 
-        ``cal`` can be an instance of ``TradingCalendar`` a string or an
-        instance of ``pandas_market_calendars``. A string will be will be
-        instantiated as a ``PandasMarketCalendar`` (which needs the module
-        ``pandas_market_calendar`` installed in the system.
+        # ``cal`` can be an instance of ``TradingCalendar`` a string or an
+        # instance of ``pandas_market_calendars``. A string will be will be
+        # instantiated as a ``PandasMarketCalendar`` (which needs the module
+        # ``pandas_market_calendar`` installed in the system.
 
-        If a subclass of `TradingCalendarBase` is passed (not an instance) it
-        will be instantiated
-        '''
+        # If a subclass of `TradingCalendarBase` is passed (not an instance) it
+        # will be instantiated
+        # '''
         if isinstance(cal, string_types):
             cal = PandasMarketCalendar(calendar=cal)
         elif hasattr(cal, 'valid_days'):
@@ -655,30 +655,30 @@ class Cerebro(with_metaclass(MetaParams, object)):
         self.observers.append((False, obscls, args, kwargs))
 
     def addobservermulti(self, obscls, *args, **kwargs):
-        '''
-        Adds an ``Observer`` class to the mix. Instantiation will be done at
-        ``run`` time
+        # '''
+        # Adds an ``Observer`` class to the mix. Instantiation will be done at
+        # ``run`` time
 
-        It will be added once per "data" in the system. A use case is a
-        buy/sell observer which observes individual datas.
+        # It will be added once per "data" in the system. A use case is a
+        # buy/sell observer which observes individual datas.
 
-        A counter-example is the CashValue, which observes system-wide values
-        '''
+        # A counter-example is the CashValue, which observes system-wide values
+        # '''
         self.observers.append((True, obscls, args, kwargs))
 
     def addstorecb(self, callback):
-        '''Adds a callback to get messages which would be handled by the
-        notify_store method
+        # '''Adds a callback to get messages which would be handled by the
+        # notify_store method
 
-        The signature of the callback must support the following:
+        # The signature of the callback must support the following:
 
-          - callback(msg, \*args, \*\*kwargs)
+        #   - callback(msg, \*args, \*\*kwargs)
 
-        The actual ``msg``, ``*args`` and ``**kwargs`` received are
-        implementation defined (depend entirely on the *data/broker/store*) but
-        in general one should expect them to be *printable* to allow for
-        reception and experimentation.
-        '''
+        # The actual ``msg``, ``*args`` and ``**kwargs`` received are
+        # implementation defined (depend entirely on the *data/broker/store*) but
+        # in general one should expect them to be *printable* to allow for
+        # reception and experimentation.
+        # '''
         self.storecbs.append(callback)
 
     def _notify_store(self, msg, *args, **kwargs):
@@ -709,18 +709,18 @@ class Cerebro(with_metaclass(MetaParams, object)):
                     strat.notify_store(msg, *args, **kwargs)
 
     def adddatacb(self, callback):
-        '''Adds a callback to get messages which would be handled by the
-        notify_data method
+        # '''Adds a callback to get messages which would be handled by the
+        # notify_data method
 
-        The signature of the callback must support the following:
+        # The signature of the callback must support the following:
 
-          - callback(data, status, \*args, \*\*kwargs)
+        #   - callback(data, status, \*args, \*\*kwargs)
 
-        The actual ``*args`` and ``**kwargs`` received are implementation
-        defined (depend entirely on the *data/broker/store*) but in general one
-        should expect them to be *printable* to allow for reception and
-        experimentation.
-        '''
+        # The actual ``*args`` and ``**kwargs`` received are implementation
+        # defined (depend entirely on the *data/broker/store*) but in general one
+        # should expect them to be *printable* to allow for reception and
+        # experimentation.
+        # '''
         self.datacbs.append(callback)
 
     def _datanotify(self):

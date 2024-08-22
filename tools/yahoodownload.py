@@ -32,7 +32,7 @@ import sys
 
 PY2 = sys.version_info.major == 2
 if PY2:
-    from urllib2 import urlopen
+    from urllib2 import urlopen # type: ignore
     from urllib import quote as urlquote
 else:
     from urllib.request import urlopen

@@ -900,7 +900,7 @@
   - Fixes #51 - a trade may reopen a position but close a trade if overlapping
     (different tradeid) trades are active
   - Address Pull Request #52 by adding Py 2/3 MAXINT compatible "constant" which
-    is imported into TradeAnalyzer and used instead of sys.maxint
+    is imported into TradeAnalyzer and used instead of sys.maxsize
   - Fixes #50 by correcting open/popen typo in StopLimit order
 
 1.1.23.88

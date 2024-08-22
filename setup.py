@@ -38,7 +38,7 @@ with open(os.path.join(pname, vname)) as f:
 
 # Generate links
 gurl = 'https://github.com/mementum/' + pname
-gdurl = gurl + '/tarball/' + __version__
+gdurl = gurl + '/tarball/' + setuptools.__version__
 
 setuptools.setup(
     name=pname,
@@ -46,7 +46,7 @@ setuptools.setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version=__version__,
+    version=setuptools.__version__,
 
     description='BackTesting Engine',
     long_description=long_description,

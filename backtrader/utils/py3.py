@@ -33,8 +33,8 @@ if PY2:
     except ImportError:
         winreg = None
 
-    MAXINT = sys.maxint
-    MININT = -sys.maxint - 1
+    MAXINT = sys.maxsize
+    MININT = -sys.maxsize - 1
 
     MAXFLOAT = sys.float_info.max
     MINFLOAT = sys.float_info.min
